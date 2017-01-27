@@ -75,7 +75,7 @@ reflconvS<-function(x, Mp, Ap, sunelev)
 {
   results <- x
   x <- as.vector(as.matrix(x))
-  suntheta <- cos(90-sunelev)
+  suntheta <- sin(sunelev * pi /180)
   x<-(Mp*x+Ap)/suntheta
   if (class(results) == "SpatialGridDataFrame")
     results@data[, 1] <- x
